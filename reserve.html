@@ -94,8 +94,11 @@
         id: $('#reserve_uniqueID').val().trim()
       };
 
+      console.log(newDiner);
+
       $.post("/api/reserve", newDiner)
         .then("reserve.html", newDiner, function(data) {
+          console.log(data);
             if(data === true){
                 alert("Yay! You are officially booked!")
             }
