@@ -7,6 +7,9 @@ const keys =  dotenv.config();
 
 const port = keys.parsed.PORTNUM
 
+let availTable = [];
+let waiting = [];
+
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
   });
