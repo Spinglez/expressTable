@@ -8,3 +8,8 @@ const keys =  dotenv.config();
 const port = keys.parsed.PORTNUM
 
 console.log(port);
+
+
+app.listen(port, funnction(){
+  console.log('Server active and listening on open port');
+})
