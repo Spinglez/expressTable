@@ -7,8 +7,6 @@ const keys =  dotenv.config();
 
 const port = keys.parsed.PORTNUM
 
-console.log(port);
-
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
   });
