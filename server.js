@@ -9,12 +9,10 @@ const port = keys.parsed.PORTNUM
 
 console.log(port);
 
-const app = express();
-
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
   });
-  
+
 app.get("/add", function(req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
   });
@@ -22,3 +20,7 @@ app.get("/add", function(req, res) {
 app.get("/tables", function(req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
   });
+
+app.listen(port, funnction(){
+  console.log('Server active and listening on open port');
+})
