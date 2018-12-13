@@ -7,7 +7,7 @@
     <title>Reserve A Table</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		
+
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
@@ -65,7 +65,7 @@
 
 
 
-							<button type="submit" class="btn btn-primary submit">Submit</button>
+							<button id="reserveSubmit" type="submit" class="btn btn-primary submit">Submit</button>
 						</form>
 
 					</div>
@@ -84,7 +84,7 @@
 
   <script type="text/javascript">
 
-    $(".btn").on("click", function(event) {
+    $("#reserveSubmit").on("click", function(event) {
       event.preventDefault();
       let newDiner = {
         name: $("#reserve_name").val().trim(),
@@ -94,24 +94,23 @@
         id: $('#reserve_uniqueID').val().trim()
       };
 
+      $('#reserve_name').val("");
+      $('#reserve_phone').val("");
+      $('#reserve_email').val("");
+      $('#reserve_party').val('');
+      $('#reserve_uniqueID').val("");
       console.log(newDiner);
 
       $.post("/api/reserve", newDiner)
         .then("reserve.html", newDiner, function(data) {
           console.log(data);
             if(data === true){
-                alert("Yay! You are officially booked!")
+                alert("Yay! You are officially booked!");
             }
 
             if(data === false){
                 alert("Sorry you are on the wait list")
             }
-
-            $('#reserve_name').val("");
-            $('#reserve_phone').val("");
-            $('#reserve_email').val("");
-            $('#reserve_uniqueID').val("");
-            $('#reserve_party').val().trim()
         });
       });
   </script>
