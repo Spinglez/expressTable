@@ -37,6 +37,10 @@ app.get("/api/reserve", function(req, res) {
     return res.json(availTable);
   });
 
+app.get("/api/waiting", function(req, res) {
+  return res.json(waiting);
+});
+
 app.post("/api/reserve", function(req, res) {
 // req.body hosts is equal to the JSON post sent from the user
 // This works because of our body parsing middleware
@@ -48,7 +52,11 @@ app.post("/api/reserve", function(req, res) {
 
 console.log(newReserve);
 
-availTable.push(newReserve);
+if (availTable.length <= 2){
+  availTable.push(newReserve);
+}else{
+  waiting.push(newReserve);
+}
 
 res.json(newReserve);
 });
