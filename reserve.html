@@ -92,13 +92,23 @@
         id: $('#reserve_uniqueID').val().trim()
       };
 
-      console.log(newDiner);
+      $.post("/api/reserve", newDiner)
+        .then("reserve.html", newDiner, function(data) {
+            if(data === true){
+                alert("Yay! You are officially booked!")
+            }
 
-      // $.post("/api/characters", newDiner)
-      //   .then(function(data) {
-      //     console.log("add.html", data);
-      //   });
-    });
+            if(data === false){
+                alert("Sorry you are on the wait list")
+            }
+
+            $('#reserve_name').val("");
+            $('#reserve_phone').val("");
+            $('#reserve_email').val("");
+            $('#reserve_uniqueID').val("");
+            $('#reserve_party').val().trim()
+        });
+      });
   </script>
 
 </body>
