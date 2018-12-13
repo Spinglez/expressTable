@@ -60,5 +60,32 @@
             </footer>
     
         </div>
+
+        <script type='text/javascript'>
+          $.ajax({
+                url: '/api',
+                method: 'GET'
+              }).done(function(response) {
+                console.log(response.availTable);
+                if (response) {
+                  let tableSection = $('#tableSection');
+                  let waitlistSection = $('#waitlistSection');
+                  for (let i = 0; i < response.availTable.length; i++) {
+                    let tableDiv = $('<div>').addClass('well');
+                    let id = response.availTable[i].id;
+                    tableDiv.append($('<h2>').html("<span class='label label-primary'>1</span>|"));
+                    tableDiv.append($('<div>').append($('<h4>').text(id)));
+                    tableSection.append(tableDiv);
+                  }
+                  for (let i = 0; i < response.waiting.length; i++) {
+                    let tableDiv = $('<div>').addClass('well');
+                    let id = response.waiting[i].id;
+                    tableDiv.append($('<h2>').html("<span class='label label-primary'>1</span>|"));
+                    tableDiv.append($('<div>').append($('<h4>').text(id)));
+                    waitlistSection.append(tableDiv);
+                  }
+                }
+              });
+        </script>
 </body>
 </html>
