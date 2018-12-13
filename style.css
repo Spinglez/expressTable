@@ -1,0 +1,11 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url('./images/foodServed.png') no-repeat fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.jumbotron {
+    background-color: blanchedalmond;
+}
