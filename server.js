@@ -21,6 +21,6 @@ app.get("/tables", function(req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
   });
 
-app.listen(port, funnction(){
+app.listen(port, function(){
   console.log('Server active and listening on open port');
 })
