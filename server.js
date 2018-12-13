@@ -29,6 +29,10 @@ app.get("/reserve", function(req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
   });
 
+app.get("/style.css", function(req, res) {
+  res.sendFile(path.join(__dirname, "style.css"));
+});
+
 app.get("/tables", function(req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
   });
