@@ -9,11 +9,11 @@ const port = keys.parsed.PORTNUM
 
 let availTable = [
     {
-        name:
-        phone:
-        email:
-        party:
-        id:
+        name: "Ajay",
+        phone: 1234,
+        email: "a@com.com",
+        party: 5,
+        id: 10
     }
 ];
 let waiting = [];
